@@ -40,7 +40,7 @@ def send_verification_email(to_email: str, token: str):
         server.send_message(msg)
 
 def send_reset_email(to_email: str, token: str):
-    link = f"http://localhost:5173/resetpw?token={token}"  # React reset page
+    link = f"http://localhost:5174/resetpw?token={token}"  # React reset page
 
     body = f"""
     Hello,

@@ -69,7 +69,7 @@ def verify_email(token: str, db: Session = Depends(get_db)):
     # 2️⃣ Check if token is expired
     if user.token_expires_at < datetime.utcnow():
         # Redirect to link expired page
-        return RedirectResponse(url="http://localhost:5173/link-expired")
+        return RedirectResponse(url="http://localhost:5174/link-expired")
 
     # 3️⃣ Token valid → verify user
     user.is_verified = True
@@ -81,7 +81,7 @@ def verify_email(token: str, db: Session = Depends(get_db)):
     db.refresh(user)  # optional, ensures the user object is updated
 
     # 5️⃣ Redirect to login page
-    return RedirectResponse(url="http://localhost:5173/login")
+    return RedirectResponse(url="http://localhost:5174/login")
 
 @router.post("/login")
 def login(user: LoginUser, db: Session = Depends(get_db)):
